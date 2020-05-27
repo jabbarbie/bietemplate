@@ -1,0 +1,6 @@
+<b:loop values='data:feedLinks' var='feedLink'>
+        <data:feedLink.url/>
+        <data:feedLink.name/>
+        <data:feedLink.feedType/>
+        <data:feedLink.mimeType/>
+</b:loop>

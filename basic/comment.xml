@@ -1,0 +1,22 @@
+<b:loop values='data:comments' var='comment'>
+        <data:comment.id/>
+        <data:comment.inReplyTo/>
+        <data:comment.cmtBodyIdPostfix/>
+        <data:comment.url/>
+        <data:comment.body/>
+        <data:comment.timestamp/>
+        <data:comment.timestampValue/>
+        <data:comment.timestampAbs/>
+        <data:comment.author/>
+        <data:comment.authorUrl/>
+        <data:comment.authorUserType/>
+        <data:comment.authorPhoto.url/>
+        <data:comment.authorPhoto.width/>
+        <data:comment.authorPhoto.height/>
+        <data:comment.authorAvatarSrc/>
+        <data:comment.authorAvatarImage/>
+        <data:comment.anchorName/>
+        <data:comment.deleteUrl/>
+        <data:comment.isDeleted/>
+        <data:comment.adminClass/>
+      </b:loop>

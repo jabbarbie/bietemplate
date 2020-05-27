@@ -1,0 +1,4 @@
+<b:loop values='data:labels' var='label'>
+        <data:label.name/>
+        <data:label.url/>
+</b:loop>
