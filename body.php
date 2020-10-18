@@ -6,43 +6,57 @@
 <b:class cond='data:view.isLabelSearch' name='archive category'/>
 
 <div itemscope='itemscope' itemtype='http://schema.org/Blog'>
+
   <div id="wrapper">
-    <div class="atas">
-
     <header>
-      <div id="headerputih">
-        <h1><data:blog.title/></h1>
-        <p><data:blog.description/></p>
-      </div>
+      <nav>
+          <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/detail.html">About</a></li>
+              <li><a href="http://">Project</a></li>
+              <li><a href="http://">Source Code</a></li>
+              <li><a href="http://">Tutorial</a></li>
+              <li><a href="http://">Galery</a></li>
+          </ul>
 
-    </header>
-  
-    	<nav id="nav">
-        <a onclick="bukasitik()" class='menuhp'><i class="fa fa-home"></i> Menu</a>
-        <ul class="nav" >
-          <li><a expr:href="data:blog.homepageUrl" class='active'>Home</a></li>
-<!--         
-          <li><a href="/p/blog-page.html">About Us</a></li>
-          <li><a href="/search/label/Manhwa">Manhwa</a></li>
-          <li><a href="/search/label/Manhua">Manhua</a></li>
-          <li><a href="/search/label/Rekomendasi" >Rekomendasi</a></li>
- -->        
-        </ul>
-        <div class="pencarian menuhp">
-          <form action="/search"><input type="text" placeholder="Pencarian..." name="q" /></form>
-        </div>
+          <div id='sosialmedia'>
+              <a href='https://fb.me/faisal.kaskuserholic' target='_blank'>
+                <img  src='https://3.bp.blogspot.com/-djgio4rJu8k/XtNebPfZt0I/AAAAAAAAQ10/9ySdIsGPffMVdT-NfOzUSAIibI3x2wY1wCNcBGAsYHQ/s1600/iconfinder_Logo_facebook_6214511%2B%25281%2529.png' />
+              </a>
+              <a href='https://github.com/jabbarbie' target='_blank'>
+                <img  src='https://3.bp.blogspot.com/-ybxabY-CkBE/XtNeYyua20I/AAAAAAAAQ1Q/94uJ9gPKiZs6ObxBiniHDNz3jtbxJX1FACNcBGAsYHQ/s1600/iconfinder_Logo_Github_6214513.png' />
+              </a>
+              <a href='mailto:krotopal@gmail.com' target='_blank'>
+                <img  src='https://4.bp.blogspot.com/--ftMQ3lPBcw/XtNeZoM_C8I/AAAAAAAAQ1U/JLjML-RNIMs1jYPQFzhcHpPKpL6YgN5TgCNcBGAsYHQ/s1600/iconfinder_Logo_Gmail_envelope_letter_email_6214507.png' />
+              </a>
+              <a href='https://instagram.com/biejabbar' target='_blank'>
+                <img  src='https://2.bp.blogspot.com/-AjOR3h-WdfU/XtNeZ73evmI/AAAAAAAAQ1Y/ceLSuXgkmkAn6YbRCykkmiYwBkeNprqpQCNcBGAsYHQ/s1600/iconfinder_Logo_Instagram_6214515.png' />
+              </a>
+              <a href='https://www.youtube.com/channel/UC0RoxVXhgg8koMrQCkZ68sg?view_as=subscriber' target='_blank'>
+                <img  src='https://2.bp.blogspot.com/-v4vvESJotWI/XtNeaxbx2nI/AAAAAAAAQ1w/CoFR5AzEt8gs2v_E55E0BfytI_xUDDt8ACNcBGAsYHQ/s1600/iconfinder_Logo_Youtube_6214533.png' />
+              </a>
+          </div>
       </nav>
-    </div>
-
+      </header>
+      
 		<main>
 			<b:section id='main' showaddelement='yes'>
       	<b:widget id='Blog1' type='Blog'/>
-    	</b:section>
+      </b:section>
+      
 		</main>
 		
     <aside>
-     
-			<b:section id='aside' showaddelement='yes'>
+      <form expr:action='data:blog.searchUrl'>
+        <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+        <b:include name='urlParamsAsFormInput'/>
+        <div class='search-input'>
+          <input type='search' autocomplete='off' expr:aria-label='data:messages.searchThisBlog'  expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' placeholder="Ketik apapun di sini untuk Pencarian" />
+        </div>
+      </form>
+              
+        <b:section id='aside' showaddelement='yes'>
+
 				<b:widget id='PopularPosts1' type='PopularPosts' title='Artikel Teratas' />
 				<b:widget id='Label1' type='Label' title="Kategori" />
 
@@ -64,25 +78,31 @@
           
 		</aside>
     
-  </div>  
-</div> <!-- End of Wrapper -->
+  
   <footer>
-    <div class=''>
-   
-    </div>
-    
-    <div class="creditw">
-      <div class="copyright">
-        <h2>Copyright 2019 <a href="mailto:krotopal@gmail.com">JABBARBIE</a> All Right Reserved - Powered by <a href='https://blogger.com'>BLOGGER</a></h2>  
-      </div>
-      <div class="menuf">
-        <a href="/p/about.html">About Me</a>
-        <a href="/p/contact-form.html">Contact </a>
-        <a href="/p/privacy-policy.html">Privacy Policy</a>
-        <a href="/p/disclaimer.html">Disclaimer</a>
-        <a href="/p/sitemap.html">Sitemap</a>
-      </div>
-    </div>
+    <ul>
+      <li>Template Created By <a href="https://bie.my.id">JABBARBIE</a> 2020 - Powered by BLOGGER</li>
+      <li>
+          <ul>
+              <li>
+                  <a href="http://">About</a>
+              </li>
+              <li>
+                  <a href="http://">Contact</a>
+              </li>
+              <li>
+                  <a href="http://">Disclammer</a>
+              </li>
+              <li>
+                  <a href="">Privacy Policy</a>
+              </li>
+          </ul>
+      </li>
+    </ul>
   </footer>
+
+  </div><!-- End of Wrapper -->
+</div> 
+
 
 <!-- JS -->

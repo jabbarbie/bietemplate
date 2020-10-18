@@ -1,7 +1,7 @@
 <b:defaultmarkup type='Common'>
   <b:includable id='title' var='x'>
-    <div class='title'>
-      <h3><data:x/></h3>        
+    <div >
+      <h2 class="title"><data:x/></h2>        
     </div>
   </b:includable>
   
@@ -40,27 +40,38 @@
   <!-- B HALAMAN INDEX -->
   <b:includable id='Beranda' var='x'>
     <article>
-    <a expr:href='data:x.url'>
-      <div class='post'>
+      <div>
         <!-- ThumbnailPost Index-->
-        <div class='PostKiri'>
-          <h2 expr:class='&quot;postLabelBeranda &quot; + data:x.labels.first.name'><data:x.labels.first.name/></h2>
-          <b:if cond='data:x.featuredImage'>
-            <b:include data='data:x.featuredImage' name='FungsiGambar'/>     
-          <b:else/>
-            Kosong
-          </b:if>
+        <b:include data='data:x' name='PostTitle'/>
+
+        <div class="postBerandaFooter">
+          <div class='date'><b:eval expr='data:x.date format "MMM dd" ' /></div>
+
+          <div class="labels-outer">
+            <b:loop values='data:x.labels' var='label'>
+              <span class='label'><a expr:href='data:label.url'><data:label.name/></a></span>
+            </b:loop>  
+          </div>
         </div>
-        <!-- Snippet Body Post Index-->
-        <div class='PostKanan'>
-          <b:include data='data:x' name='PostTitle'/>
-          <b:include data='data:x' name='FungsiPost'/>
-          <b:comment>
-              <b:include data='data:x' name='PostFooter'/>                    
-          </b:comment>
-        </div>          
+
+        <b:include data='data:x' name='FungsiPost'/>
+
+
+        <?php if ($postwithimage): ?>
+          <b:class name='BerandaWithoutImage'/>
+          
+          <div class='PostBerandaImage'>
+            <b:if cond='data:x.featuredImage'>
+              <b:include data='data:x.featuredImage' name='FungsiGambar'/>     
+            </b:if>
+          </div>
+        <?php else: ?>
+          <b:class name='BerandaImage'/>
+        <?php endif; ?>
+
       </div>
-      </a>
+        <!-- Snippet Body Post Index-->
+
     </article>
   </b:includable>
 
@@ -68,8 +79,15 @@
   <b:includable id='PostDetail' var='x'>
     <div class='PostDetail'>
       <b:include data='x' name='postMeta'/>
-      <b:include data='data:x' name='PostTitle'/>
       <b:include data='data:x' name='Breadcrumbs'/>
+      <b:include data='data:x' name='PostTitle'/>
+      
+      <div class="tanggallabel">
+        <span><b:eval expr='data:x.lastUpdated' /></span>
+        <b:include  data='data:x.labels' name='PostLabel' />
+      </div>
+    
+
 
       <div class='PostDetailBody'>
         <data:x.body/>           
@@ -107,9 +125,16 @@
   <!-- B Paggination -->
   <b:includable id='Paggination'>
     <div id='paggination'>
-      <b:include cond='data:newerPageUrl' name='previousPageLink'/>
-      <b:include cond='data:olderPageUrl' name='nextPageLink'/>
-      <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+      
+      <span><a href="">1</a></span>
+      <span><a href="">2</a></span>
+      <span><a href="">3</a></span>
+      
+      <b:comment>
+        <b:include cond='data:newerPageUrl' name='previousPageLink'/>
+        <b:include cond='data:olderPageUrl' name='nextPageLink'/>
+        <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
+      </b:comment>
     </div>
   </b:includable>
   <b:includable id='previousPageLink'>
@@ -163,7 +188,7 @@
   <b:includable id='FungsiPost' var='x'>
     <div>
       <b:if cond='data:view.isHomepage or data:view.isMultipleItems'>
-        <b:eval cond='data:view.isHomepage' expr='data:x.snippets.long snippet {length: 100, links: false, linebreaks: false, ellipsis: true}'/>
+        <b:eval cond='data:view.isHomepage' expr='data:x.snippets.long snippet {length: 200, links: false, linebreaks: false, ellipsis: true}'/>
         <b:class name='postBodyBeranda'/>
       </b:if>
     </div>
@@ -201,16 +226,14 @@
   </b:includable>
   <!-- Breadcrumbs -->
   <b:includable id='Breadcrumbs' var='post'>
-  <!-- Post Breadcrumbs -->
+  <!-- Post Breadcrumbs --> 
     <b:if cond='data:view.isPost'>
     <nav id='breadcrumbs'>
       <a expr:href='data:blog.homepageUrl'><data:messages.home/></a>
       <b:if cond='data:post.labels'>
-        /
         <a class='b-label' expr:href='data:post.labels.first.url'> <data:post.labels.first.name/></a>
       </b:if>
-      /
-      <span class='current'><data:post.title/></span>
+      <a class='b-label' expr:href="data:post.url"><data:post.title/></a>
     </nav>
 
     <script type='application/ld+json'>
@@ -264,6 +287,8 @@
     
     </div>
   </b:includable>
+
+  
 </b:defaultmarkup>    
 
 <!-- K Fungsi Komen -->
@@ -322,15 +347,18 @@
 <b:defaultmarkup type='Label'>
   <b:includable id='main'>
     <b:include data='data:title' name='title'/>
-    <b:class name='bels'/>
-    <b:class name='widgetputih'/>
+    <div class="widget-content">
 
-    <ul>
-      <b:loop index='i' values='data:labels' var='l'>
-        <li expr:class='data:l.name'><a expr:href='data:l.url'>
-          <data:l.name/></a></li>
-      </b:loop> 
-    </ul>
+      <b:class name='bels'/>
+      <b:class name='widgetputih'/>
+      
+      <ul class="labelcloud">
+        <b:loop index='i' values='data:labels' var='l'>
+          <li expr:class='data:l.name'><a expr:href='data:l.url'>
+            <data:l.name/></a></li>
+          </b:loop> 
+        </ul>
+    </div>
   </b:includable>
 </b:defaultmarkup>
 
@@ -352,7 +380,7 @@
 
 <b:defaultmarkup type='Profile'>
   <b:includable id='main'>
-    <h3><data:title/></h3>
+    <h2 class="title"><data:title/></h2>
       <b:if cond='data:team'>
         <div class='userw'>
           <b:loop index='m' values='data:authors' var='u'>
@@ -370,7 +398,7 @@
 
 <b:defaultmarkup type='LinkList'>
   <b:includable id='main' var='x'>
-  <h3>Rekomendasi</h3>
+  <h2 class="title">Rekomendasi</h2>
   <ul>
     <b:loop values='data:links' var='link'>
       <li><a expr:href='data:link.target'><data:link.name/></a></li>

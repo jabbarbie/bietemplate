@@ -3,6 +3,9 @@
 $adsense = false;
 $disqus = false;
 
+// model content
+$postwithimage = false;
+
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
@@ -12,7 +15,7 @@ $disqus = false;
 
 <b:skin version='1.3.0'><![CDATA[
 /* */
-<?php include("css.php") ?>
+<?php include("master/css/style.css") ?>
 <?php include("warnalabel.php") ?>
 <?php include("cssmobile.php") ?>
 ]]></b:skin>
@@ -60,7 +63,7 @@ $disqus = false;
 
 <?php include('body.php') ?>
 <script><?php include('js.php') ?> </script>
-
+<script src="/feeds/posts/summary?max-results=9999&amp;alt=json-in-script&amp;callback=jsku"></script>
 
 
 </body>
