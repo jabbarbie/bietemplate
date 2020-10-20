@@ -4,7 +4,7 @@ $adsense = false;
 $disqus = false;
 
 // model content
-$postwithimage = false;
+$postwithimage = true;
 
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>

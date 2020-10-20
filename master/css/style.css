@@ -140,28 +140,23 @@ body {
   line-height: 2rem;
 }
 
-#wrapper main .PostDetail h1, #wrapper main .PostDetail h2, #wrapper main .PostDetail h3, #wrapper main .PostDetail h4, #wrapper main .PostDetail h5, #wrapper main .PostDetail h6 {
-  line-height: 2em;
-}
-
 #wrapper main .PostDetail h2 {
   font-size: 1.8rem;
   font-weight: 400;
+  margin: 1rem 0;
 }
 
 #wrapper main .PostDetail p {
   margin-bottom: 1rem;
 }
 
-#wrapper main .PostDetail a {
-  color: purple;
-  font-weight: bold;
-}
-
 #wrapper main .PostDetail ul, #wrapper main .PostDetail ol {
   margin: 1rem 0;
   padding-left: 1rem;
-  line-height: 2.5rem;
+}
+
+#wrapper main .PostDetail ul li, #wrapper main .PostDetail ol li {
+  line-height: 2rem;
 }
 
 #wrapper main .PostDetail .PostTitle, #wrapper main .PostDetail h2 {
@@ -191,11 +186,12 @@ body {
 #wrapper main .PostDetail #breadcrumbs a {
   font-weight: normal;
   color: #646464;
+  font-size: 0.9rem;
 }
 
 #wrapper main .PostDetail #breadcrumbs a:not(:last-child):after {
-  content: '/';
-  padding: 0 0.4rem;
+  content: '\203A';
+  padding: 0 0.2rem 0 0.5rem;
 }
 
 #wrapper main .PostDetail .tanggallabel {
@@ -205,14 +201,27 @@ body {
   font-size: 0.9rem;
 }
 
+#wrapper main .PostDetail .tanggallabel > span:after {
+  margin: 0rem 0.4rem;
+  content: '\2022';
+}
+
 #wrapper main .PostDetail .tanggallabel span, #wrapper main .PostDetail .tanggallabel a {
   color: #646464;
+  font-weight: normal;
+}
+
+#wrapper main .PostDetail .tanggallabel span > a {
+  margin-right: 0.1rem;
+  border: 1px solid #dedede;
+  padding: 0.2rem;
+  border-radius: 0.2em;
+  font-size: 0.8rem;
 }
 
 #wrapper main .PostDetail .PostTitle {
   font-weight: normal;
   font-size: 1.8rem;
-  margin-top: 0.5rem;
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;
   line-height: 2.5rem;
@@ -224,6 +233,11 @@ body {
   margin: 1rem 0;
 }
 
+#wrapper main .PostDetail .PostDetailBody a {
+  color: #006cb0;
+  font-weight: bold;
+}
+
 #wrapper main .Beranda {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -233,6 +247,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #dedede;
 }
 
 #wrapper main .Beranda article {
@@ -240,76 +256,65 @@ body {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   padding: 0.6vw;
-  border: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #wrapper main .Beranda article:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-#wrapper main .Beranda article > div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 5fr 6fr;
-      grid-template-columns: 1fr 5fr 6fr;
+#wrapper main .Beranda article .post-outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-rows: (auto)[3];
       grid-template-rows: repeat(3, auto);
-  grid-auto-rows: 10px;
   color: #646464;
 }
 
-#wrapper main .Beranda article > div .PostTitle {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 1;
-  grid-row: 1;
+#wrapper main .Beranda article .post-outer .PostTitle {
   font-size: 1.5rem;
 }
 
-#wrapper main .Beranda article > div .PostTitle a {
+#wrapper main .Beranda article .post-outer .PostTitle a {
+  color: #364f6b;
   font-weight: lighter;
 }
 
-#wrapper main .Beranda article > div .postBodyBeranda {
+#wrapper main .Beranda article .post-outer .postBodyBeranda {
   margin: 0.5rem 0 0.2rem 0;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 2;
-  grid-row: 2;
+  line-height: 1.8rem;
 }
 
-#wrapper main .Beranda article > div .labels-outer {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2/4;
+#wrapper main .Beranda article .post-outer .postBerandaFooter {
   -ms-grid-row: 3;
   grid-row: 3;
+  margin: 0.6rem 0;
 }
 
-#wrapper main .Beranda article > div .labels-outer .label a {
+#wrapper main .Beranda article .post-outer .labels-outer .label a {
   color: inherit;
+  border: 1px solid #dedede;
+  padding: 0.3rem 0.4rem;
+  margin-right: 0.2rem;
+  font-size: 0.8rem;
 }
 
-#wrapper main .Beranda article > div .labels-outer .label:first-child:before {
-  content: "-";
-  margin: 0 0.3rem;
-}
-
-#wrapper main .Beranda article > div .labels-outer .label:not(:last-child):after {
-  content: " / ";
-  margin: 0 0.1rem;
-}
-
-#wrapper main .Beranda article > div .date {
+#wrapper main .Beranda article .post-outer .date {
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 3;
   grid-row: 3;
 }
 
-#wrapper main .Beranda article > div .date, #wrapper main .Beranda article > div .labels-outer {
+#wrapper main .Beranda article .post-outer .date, #wrapper main .Beranda article .post-outer .labels-outer {
   font-size: 0.9rem;
 }
 
@@ -320,11 +325,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#wrapper main .Beranda article:hover {
-  border-color: #006cb0;
-  background-color: #efefef;
+  margin: 0.5rem 0;
 }
 
 #wrapper main #paggination {
@@ -512,6 +513,9 @@ input[type="search"]:focus {
 }
 
 @media screen and (max-width: 900px) {
+  html {
+    font-size: 16px;
+  }
   #wrapper {
     width: 100vw;
     display: -webkit-box;
@@ -542,24 +546,74 @@ input[type="search"]:focus {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  #wrapper footer > ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .comment-block {
+    border-radius: 0;
+  }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+#comments {
+  border-top: 1px solid #dedede;
+  padding: 1rem 0;
 }
 
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px grey;
-          box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+#comments a {
+  color: #000 !important;
+  font-weight: normal;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #006cb0;
-  border-radius: 10px;
+#comments img {
+  width: auto;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #364f6b;
+#comments h3.title {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+#comments #comments-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#comments #comments-block .comment {
+  margin-bottom: 1rem;
+}
+
+#comments #comments-block .comment .avatar-image-container {
+  display: none;
+}
+
+#comments #comments-block .comment .comment-block {
+  background-color: lightblue;
+  padding: 1vw;
+  border-top-right-radius: 2rem;
+}
+
+#comments #comments-block .comment .comment-block .comment-headernya {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: normal;
+}
+
+#comments #comments-block .comment .comment-block .comment-footer {
+  font-size: 0.8rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -40,34 +40,36 @@
   <!-- B HALAMAN INDEX -->
   <b:includable id='Beranda' var='x'>
     <article>
-      <div>
+      
+      <b:comment>
+      <?php if ($postwithimage): ?>        
+        <div class='PostBerandaImage'>
+          <b:if cond='data:x.featuredImage'>
+            <b:include data='data:x.featuredImage' name='FungsiGambar'/>     
+          </b:if>
+        </div>
+      <?php endif; ?>
+      </b:comment>
+
+      <div class="post-outer">
         <!-- ThumbnailPost Index-->
         <b:include data='data:x' name='PostTitle'/>
+        <b:include data='data:x' name='FungsiPost'/>
+
+
+        <b:comment>
+            <div class='date'><b:eval expr='data:x.date format "MMM dd" ' /></div>
+          </b:comment>
+
 
         <div class="postBerandaFooter">
-          <div class='date'><b:eval expr='data:x.date format "MMM dd" ' /></div>
-
+          
           <div class="labels-outer">
             <b:loop values='data:x.labels' var='label'>
               <span class='label'><a expr:href='data:label.url'><data:label.name/></a></span>
             </b:loop>  
           </div>
         </div>
-
-        <b:include data='data:x' name='FungsiPost'/>
-
-
-        <?php if ($postwithimage): ?>
-          <b:class name='BerandaWithoutImage'/>
-          
-          <div class='PostBerandaImage'>
-            <b:if cond='data:x.featuredImage'>
-              <b:include data='data:x.featuredImage' name='FungsiGambar'/>     
-            </b:if>
-          </div>
-        <?php else: ?>
-          <b:class name='BerandaImage'/>
-        <?php endif; ?>
 
       </div>
         <!-- Snippet Body Post Index-->
@@ -101,6 +103,9 @@
       <b:comment>
         <b:include cond='data:view.isPost' data='x' name='postDetailFooter'/>
       </b:comment>
+
+      <b:include cond='data:view.isSingleItem' data='x' name='commentPicker'/>
+
     </div>
   </b:includable>
 
@@ -172,7 +177,7 @@
   <b:includable id='PostLabel' var='x'>
     <div class='label'>
       <b:loop values='data:x' var='label'>
-        <span><a expr:href='data:label.url'><data:label.name/></a> / </span>
+        <span><a expr:href='data:label.url'><data:label.name/></a></span>
       </b:loop>  
     </div>
   </b:includable>
@@ -283,18 +288,13 @@
     </script>
 
   <?php endif; ?>
-    <div id='comments'>
-    
-    </div>
+
   </b:includable>
 
-  
-</b:defaultmarkup>    
 
-<!-- K Fungsi Komen -->
-
-<!-- Komentar Judul -->
-
+<?php include("komentar.php")?>
+</b:defaultmarkup>
+   
 <!-- /K Fungsi Komen-->
 <b:defaultmarkup type='Blog, PopularPosts'>
   <!-- B Judul Post-->

@@ -239,28 +239,23 @@ body {
   line-height: 2rem;
 }
 
-#wrapper main .PostDetail h1, #wrapper main .PostDetail h2, #wrapper main .PostDetail h3, #wrapper main .PostDetail h4, #wrapper main .PostDetail h5, #wrapper main .PostDetail h6 {
-  line-height: 2em;
-}
-
 #wrapper main .PostDetail h2 {
   font-size: 1.8rem;
   font-weight: 400;
+  margin: 1rem 0;
 }
 
 #wrapper main .PostDetail p {
   margin-bottom: 1rem;
 }
 
-#wrapper main .PostDetail a {
-  color: purple;
-  font-weight: bold;
-}
-
 #wrapper main .PostDetail ul, #wrapper main .PostDetail ol {
   margin: 1rem 0;
   padding-left: 1rem;
-  line-height: 2.5rem;
+}
+
+#wrapper main .PostDetail ul li, #wrapper main .PostDetail ol li {
+  line-height: 2rem;
 }
 
 #wrapper main .PostDetail .PostTitle, #wrapper main .PostDetail h2 {
@@ -290,11 +285,12 @@ body {
 #wrapper main .PostDetail #breadcrumbs a {
   font-weight: normal;
   color: #646464;
+  font-size: 0.9rem;
 }
 
 #wrapper main .PostDetail #breadcrumbs a:not(:last-child):after {
-  content: '/';
-  padding: 0 0.4rem;
+  content: '\203A';
+  padding: 0 0.2rem 0 0.5rem;
 }
 
 #wrapper main .PostDetail .tanggallabel {
@@ -304,14 +300,27 @@ body {
   font-size: 0.9rem;
 }
 
+#wrapper main .PostDetail .tanggallabel > span:after {
+  margin: 0rem 0.4rem;
+  content: '\2022';
+}
+
 #wrapper main .PostDetail .tanggallabel span, #wrapper main .PostDetail .tanggallabel a {
   color: #646464;
+  font-weight: normal;
+}
+
+#wrapper main .PostDetail .tanggallabel span > a {
+  margin-right: 0.1rem;
+  border: 1px solid #dedede;
+  padding: 0.2rem;
+  border-radius: 0.2em;
+  font-size: 0.8rem;
 }
 
 #wrapper main .PostDetail .PostTitle {
   font-weight: normal;
   font-size: 1.8rem;
-  margin-top: 0.5rem;
   text-transform: uppercase;
   font-family: "Josefin Sans", sans-serif;
   line-height: 2.5rem;
@@ -323,6 +332,11 @@ body {
   margin: 1rem 0;
 }
 
+#wrapper main .PostDetail .PostDetailBody a {
+  color: #006cb0;
+  font-weight: bold;
+}
+
 #wrapper main .Beranda {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -332,6 +346,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #dedede;
 }
 
 #wrapper main .Beranda article {
@@ -339,76 +355,65 @@ body {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   padding: 0.6vw;
-  border: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #wrapper main .Beranda article:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-#wrapper main .Beranda article > div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 5fr 6fr;
-      grid-template-columns: 1fr 5fr 6fr;
+#wrapper main .Beranda article .post-outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-rows: (auto)[3];
       grid-template-rows: repeat(3, auto);
-  grid-auto-rows: 10px;
   color: #646464;
 }
 
-#wrapper main .Beranda article > div .PostTitle {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 1;
-  grid-row: 1;
+#wrapper main .Beranda article .post-outer .PostTitle {
   font-size: 1.5rem;
 }
 
-#wrapper main .Beranda article > div .PostTitle a {
+#wrapper main .Beranda article .post-outer .PostTitle a {
+  color: #364f6b;
   font-weight: lighter;
 }
 
-#wrapper main .Beranda article > div .postBodyBeranda {
+#wrapper main .Beranda article .post-outer .postBodyBeranda {
   margin: 0.5rem 0 0.2rem 0;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-column: 1/4;
-  -ms-grid-row: 2;
-  grid-row: 2;
+  line-height: 1.8rem;
 }
 
-#wrapper main .Beranda article > div .labels-outer {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2/4;
+#wrapper main .Beranda article .post-outer .postBerandaFooter {
   -ms-grid-row: 3;
   grid-row: 3;
+  margin: 0.6rem 0;
 }
 
-#wrapper main .Beranda article > div .labels-outer .label a {
+#wrapper main .Beranda article .post-outer .labels-outer .label a {
   color: inherit;
+  border: 1px solid #dedede;
+  padding: 0.3rem 0.4rem;
+  margin-right: 0.2rem;
+  font-size: 0.8rem;
 }
 
-#wrapper main .Beranda article > div .labels-outer .label:first-child:before {
-  content: "-";
-  margin: 0 0.3rem;
-}
-
-#wrapper main .Beranda article > div .labels-outer .label:not(:last-child):after {
-  content: " / ";
-  margin: 0 0.1rem;
-}
-
-#wrapper main .Beranda article > div .date {
+#wrapper main .Beranda article .post-outer .date {
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 3;
   grid-row: 3;
 }
 
-#wrapper main .Beranda article > div .date, #wrapper main .Beranda article > div .labels-outer {
+#wrapper main .Beranda article .post-outer .date, #wrapper main .Beranda article .post-outer .labels-outer {
   font-size: 0.9rem;
 }
 
@@ -419,11 +424,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#wrapper main .Beranda article:hover {
-  border-color: #006cb0;
-  background-color: #efefef;
+  margin: 0.5rem 0;
 }
 
 #wrapper main #paggination {
@@ -611,6 +612,9 @@ input[type="search"]:focus {
 }
 
 @media screen and (max-width: 900px) {
+  html {
+    font-size: 16px;
+  }
   #wrapper {
     width: 100vw;
     display: -webkit-box;
@@ -641,25 +645,75 @@ input[type="search"]:focus {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  #wrapper footer > ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .comment-block {
+    border-radius: 0;
+  }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+#comments {
+  border-top: 1px solid #dedede;
+  padding: 1rem 0;
 }
 
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 5px grey;
-          box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
+#comments a {
+  color: #000 !important;
+  font-weight: normal;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #006cb0;
-  border-radius: 10px;
+#comments img {
+  width: auto;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #364f6b;
+#comments h3.title {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+#comments #comments-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#comments #comments-block .comment {
+  margin-bottom: 1rem;
+}
+
+#comments #comments-block .comment .avatar-image-container {
+  display: none;
+}
+
+#comments #comments-block .comment .comment-block {
+  background-color: lightblue;
+  padding: 1vw;
+  border-top-right-radius: 2rem;
+}
+
+#comments #comments-block .comment .comment-block .comment-headernya {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: normal;
+}
+
+#comments #comments-block .comment .comment-block .comment-footer {
+  font-size: 0.8rem;
 }
 /*# sourceMappingURL=style.css.map */.Rekomendasi {background-color: orange}
 .Tips {background-color: var(--colorMain)}
@@ -828,13 +882,29 @@ article {margin: 0}
   <!-- B HALAMAN INDEX -->
   <b:includable id='Beranda' var='x'>
     <article>
-      <div>
+      
+      <b:comment>
+              
+        <div class='PostBerandaImage'>
+          <b:if cond='data:x.featuredImage'>
+            <b:include data='data:x.featuredImage' name='FungsiGambar'/>     
+          </b:if>
+        </div>
+            </b:comment>
+
+      <div class="post-outer">
         <!-- ThumbnailPost Index-->
         <b:include data='data:x' name='PostTitle'/>
+        <b:include data='data:x' name='FungsiPost'/>
+
+
+        <b:comment>
+            <div class='date'><b:eval expr='data:x.date format "MMM dd" ' /></div>
+          </b:comment>
+
 
         <div class="postBerandaFooter">
-          <div class='date'><b:eval expr='data:x.date format "MMM dd" ' /></div>
-
+          
           <div class="labels-outer">
             <b:loop values='data:x.labels' var='label'>
               <span class='label'><a expr:href='data:label.url'><data:label.name/></a></span>
@@ -842,11 +912,6 @@ article {margin: 0}
           </div>
         </div>
 
-        <b:include data='data:x' name='FungsiPost'/>
-
-
-                  <b:class name='BerandaImage'/>
-        
       </div>
         <!-- Snippet Body Post Index-->
 
@@ -879,6 +944,9 @@ article {margin: 0}
       <b:comment>
         <b:include cond='data:view.isPost' data='x' name='postDetailFooter'/>
       </b:comment>
+
+      <b:include cond='data:view.isSingleItem' data='x' name='commentPicker'/>
+
     </div>
   </b:includable>
 
@@ -950,7 +1018,7 @@ article {margin: 0}
   <b:includable id='PostLabel' var='x'>
     <div class='label'>
       <b:loop values='data:x' var='label'>
-        <span><a expr:href='data:label.url'><data:label.name/></a> / </span>
+        <span><a expr:href='data:label.url'><data:label.name/></a></span>
       </b:loop>  
     </div>
   </b:includable>
@@ -1025,18 +1093,161 @@ article {margin: 0}
 
   <!-- W Disquss -->
   <b:includable id='disqusx'>
-      <div id='comments'>
-    
-    </div>
+  
   </b:includable>
 
-  
-</b:defaultmarkup>    
 
-<!-- K Fungsi Komen -->
+<b:includable id='addComments'>
+  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:message name='messages.postAComment'/>
+  </a>
+</b:includable>
+                    <b:includable id='commentAuthorAvatar'>
+  <div class='avatar-image-container'>
+    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
+  </div>
+</b:includable>
+                    <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+                    <b:includable id='commentForm' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
+      <p><data:this.messages.blogComment/></p>
+    </b:if>
+    <b:include data='post' name='commentFormIframeSrc'/>
+    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+                    <b:includable id='commentFormIframeSrc' var='post'>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+</b:includable>
+                    <b:includable id='commentItem' var='comment'>
+  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
+    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
 
-<!-- Komentar Judul -->
+    <div class='comment-block'>
+      
+    <div class='comment-headernya'>
+      <div class='comment-author'>
+        <b:if cond='data:comment.authorUrl'>
+          <b:message name='messages.authorSaidWithLink'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
+          </b:message>
+        <b:else/>
+          <b:message name='messages.authorSaid'>
+            <b:param expr:value='data:comment.author' name='authorName'/>
+          </b:message>
+        </b:if>
+      </div>
+      <div class='comment-footer'>
+        <span class='comment-timestamp'>
+          <a expr:href='data:comment.url' title='comment permalink'>
+            <data:comment.timestamp/>
+          </a>
+          <b:include data='comment' name='commentDeleteIcon'/>
+        </span>
+      </div>
+    </div>
 
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
+
+      
+    </div>
+  </div>
+</b:includable>
+                    <b:includable id='commentList' var='comments'>
+  <div id='comments-block'>
+    <b:loop values='data:comments' var='comment'>
+      <b:include data='comment' name='commentItem'/>
+    </b:loop>
+  </div>
+</b:includable>
+                    <b:includable id='commentPicker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threadedComments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+<b:includable id='comments' var='post'>
+  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
+    <a name='comments'/>
+    <b:if cond='data:post.allowComments'>
+      <b:include name='commentsTitle'/>
+
+      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+      </div>
+
+      <b:if cond='data:post.commentPagingRequired'>
+        <div class='paging-control-container'>
+          <b:if cond='data:post.hasOlderLinks'>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
+              <data:messages.oldest/>
+            </a>
+            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
+              <data:messages.older/>
+            </a>
+          </b:if>
+
+          <span class='comment-range-text'>
+            <data:post.commentRangeText/>
+          </span>
+
+          <b:if cond='data:post.hasNewerLinks'>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
+              <data:messages.newer/>
+            </a>
+            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
+              <data:messages.newest/>
+            </a>
+          </b:if>
+        </div>
+      </b:if>
+
+      <div class='footer'>
+        <b:if cond='data:post.embedCommentForm'>
+          <b:if cond='data:post.allowNewComments'>
+            <b:include data='post' name='commentForm'/>
+          <b:else/>
+            <data:post.noNewCommentsText/>
+          </b:if>
+        <b:else/>
+          <b:if cond='data:post.allowComments'>
+            <b:include data='post' name='addComments'/>
+          </b:if>
+        </b:if>
+      </div>
+    </b:if>
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+  </section>
+</b:includable></b:defaultmarkup>
+   
 <!-- /K Fungsi Komen-->
 <b:defaultmarkup type='Blog, PopularPosts'>
   <!-- B Judul Post-->
