@@ -9,15 +9,20 @@ $postwithimage = true;
 ?>
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr' xmlns:og='http://ogp.me/ns#'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
 <head>
 <?php include("header.php") ?>
 
 <b:skin version='1.3.0'><![CDATA[
-/* */
+/*
+<?php include("cssvariable.php") ?>
+*/
+
 <?php include("master/css/style.css") ?>
-<?php include("warnalabel.php") ?>
-<?php include("cssmobile.php") ?>
+<?php include("komentarcss.php") ?>
+<?php //include("warnalabel.php") ?>
+<?php //include("cssmobile.php") ?>
 ]]></b:skin>
 <b:defaultmarkups><?php require('defaultmarkup.php') ?></b:defaultmarkups>
 

@@ -1,3 +1,18 @@
+<b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:include data='{ iconClass: &quot;touch-icon&quot; }' name='commentIcon'/>
+    <span class='num_comments'>
+      <b:if cond='data:post.numberOfComments &gt; 0'>
+        <b:message name='messages.numberOfComments'>
+          <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+        </b:message>
+      <b:else/>
+        <data:messages.postAComment/>
+      </b:if>
+    </span>
+  </a>
+</b:includable>
+
 <b:includable id='addComments'>
   <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
     <b:message name='messages.postAComment'/>
@@ -36,7 +51,7 @@
     </script>
   </div>
 </b:includable>
-                    <b:includable id='commentFormIframeSrc' var='post'>
+<b:includable id='commentFormIframeSrc' var='post'>
   <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
 </b:includable>
                     <b:includable id='commentItem' var='comment'>
@@ -44,8 +59,6 @@
     <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
 
     <div class='comment-block'>
-      
-    <div class='comment-headernya'>
       <div class='comment-author'>
         <b:if cond='data:comment.authorUrl'>
           <b:message name='messages.authorSaidWithLink'>
@@ -58,6 +71,9 @@
           </b:message>
         </b:if>
       </div>
+      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
+        <data:comment.body/>
+      </div>
       <div class='comment-footer'>
         <span class='comment-timestamp'>
           <a expr:href='data:comment.url' title='comment permalink'>
@@ -67,16 +83,11 @@
         </span>
       </div>
     </div>
-
-      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
-        <data:comment.body/>
-      </div>
-
-      
-    </div>
   </div>
 </b:includable>
-                    <b:includable id='commentList' var='comments'>
+
+
+<b:includable id='commentList' var='comments'>
   <div id='comments-block'>
     <b:loop values='data:comments' var='comment'>
       <b:include data='comment' name='commentItem'/>
@@ -90,10 +101,14 @@
     <b:include data='post' name='comments'/>
   </b:if>
 </b:includable>
+
+
+
 <b:includable id='comments' var='post'>
   <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
     <a name='comments'/>
     <b:if cond='data:post.allowComments'>
+
       <b:include name='commentsTitle'/>
 
       <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>

@@ -1,3 +1,4 @@
+
 <b:defaultmarkup type='Common'>
   <b:includable id='title' var='x'>
     <div >
@@ -5,6 +6,23 @@
     </div>
   </b:includable>
   
+</b:defaultmarkup>
+
+<b:defaultmarkup type='Blog,FeaturedPost,PopularPosts'>
+  <b:includable id='commentsLink'>
+    <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+      <b:include data='{ iconClass: &quot;touch-icon&quot; }' name='commentIcon'/>
+      <span class='num_comments'>
+        <b:if cond='data:post.numberOfComments &gt; 0'>
+          <b:message name='messages.numberOfComments'>
+            <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+          </b:message>
+        <b:else/>
+          <data:messages.postAComment/>
+        </b:if>
+      </span>
+    </a>
+  </b:includable>
 </b:defaultmarkup>
 
 <b:defaultmarkup type='Blog'>
@@ -102,8 +120,9 @@
       <b:include data='x' name='disqusx'/>
       <b:comment>
         <b:include cond='data:view.isPost' data='x' name='postDetailFooter'/>
-      </b:comment>
+        <b:include cond='data:view.isSingleItem' data='x' name='commentPicker'/>
 
+      </b:comment>
       <b:include cond='data:view.isSingleItem' data='x' name='commentPicker'/>
 
     </div>
@@ -293,6 +312,24 @@
 
 
 <?php include("komentar.php")?>
+
+<!-- Tentang Penulis -->
+<b:includable id='aboutPostAuthor'>
+  <div class='author-name'>
+    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+      <span>
+        <data:post.author.name/>
+      </span>
+    </a>
+  </div>
+  <div>
+    <span class='author-desc'>
+      <data:post.author.aboutMe/>
+    </span>
+  </div>
+</b:includable>
+<!-- End Tentang -->
+
 </b:defaultmarkup>
    
 <!-- /K Fungsi Komen-->
