@@ -1,0 +1,20 @@
+  <!-- Template Tata Letak -->
+  <b:if cond='data:view.isLayoutMode'>
+  <b:template-skin>
+  <![CDATA[
+    ul,ol,li {display: none}
+    #layout {
+      padding: 0;
+    }
+    #layout #wrapper {
+      width: 100%;
+      display: flex;
+      background-color: lightblue;
+    }    
+    #layout main {
+      padding: 0;
+      flex: 0 0 65%;
+    }
+  ]]>
+  </b:template-skin>
+  </b:if>
