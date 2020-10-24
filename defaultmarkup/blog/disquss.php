@@ -1,4 +1,4 @@
-<?php if($disqus): ?>
+<?php if(disqus): ?>
 
 <script type='text/javascript'>
   var disqus_shortname = &#39;asadako-kun&#39;;

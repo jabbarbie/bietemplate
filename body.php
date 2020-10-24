@@ -12,11 +12,11 @@
       <nav>
           <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/detail.html">About</a></li>
-              <li><a href="http://">Project</a></li>
-              <li><a href="http://">Source Code</a></li>
-              <li><a href="http://">Tutorial</a></li>
-              <li><a href="http://">Galery</a></li>
+              <li><a href="/p/about.html">About</a></li>
+              <li><a href="/p/project.html">Project</a></li>
+              <li><a href="/p/source-code.html">Source Code</a></li>
+              <li><a href="/p/tutorial.html">Tutorial</a></li>
+              <li><a href="/p/galery.html">Galery</a></li>
           </ul>
 
           <div id='sosialmedia'>
@@ -65,7 +65,7 @@
 
     <b:if cond="data:view.isSingleItem or data:view.isPost">
       <b:section id='iklansidebar' showaddelement='no'>
-        <?php if ($adsense): ?>
+        <?php if (adsense): ?>
         <b:widget id='AdSense1' type='AdSense' title="Iklan Sidebar">
           <b:widget-settings>          
             <b:widget-setting name='style.layout'>300x1050</b:widget-setting>

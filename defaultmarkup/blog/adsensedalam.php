@@ -1,4 +1,4 @@
-<?php if ($adsense): ?>
+<?php if (adsense): ?>
   <b:if cond='!data:view.isPreview'>
     <div class='postIklan'>          
     <!-- Jika bukan dalam mode preview -->

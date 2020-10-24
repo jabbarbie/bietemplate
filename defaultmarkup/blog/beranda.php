@@ -1,7 +1,7 @@
 <article>
       
       <b:comment>
-      <?php if ($postwithimage): ?>        
+      <?php if (postWithPicture): ?>        
         <div class='PostBerandaImage'>
           <b:if cond='data:x.featuredImage'>
             <b:include data='data:x.featuredImage' name='FungsiGambar'/>     

@@ -5,6 +5,7 @@
 
 <meta content='text/html; charset=utf-8' http-equiv='Content-Type'/>
 <meta content='width=device-width, initial-scale=1, shrink-to-fit=yes' name='viewport'/>
+
 <?php include('title.php') ?>
 
 <!-- Index halaman -->
@@ -70,8 +71,8 @@
 <!-- Meta generator -->
 <meta content='blogger' name='generator'/>
 <!-- end Meta generator -->
-<meta content="Jabbar Bie" name="author" />
-<link href="Jabbar Bie" ref="author" />
+<meta content="<?php echo namablog ?>" name="author" />
+<link href="<?php echo namablog ?>" ref="author" />
 
 <!-- dns-prefetch -->
 <link href="//www.blogger.com/" rel="dns-prefetch"/>
@@ -82,14 +83,12 @@
 
 <link href='//cdnjs.cloudflare.com/' rel='dns-prefetch'/>
 
-<?php if ($disqus): ?>
+<?php if (disqus): ?>
 <link href='//disqus.com' rel='dns-prefetch'/>
 <link href='//c.disqus.com' rel='dns-prefetch'/>
-<link href='//asadako-kun.disqus.com' rel='dns-prefetch'/>
+<link href='//<?php echo disqusID ?>.disqus.com' rel='dns-prefetch'/>
 <?php endif; ?>
 
 <link href='//pagead2.googlesyndication.com' rel='dns-prefetch'/>
 <link href='//fonts.googleapis.com' rel='dns-prefetch'/>
 <!-- end of dns-prefetch-->
-
-<link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'/> 

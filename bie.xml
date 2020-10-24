@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:js='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='indie.xml' b:templateVersion='1.3.0' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
   
 <meta content='text/html; charset=utf-8' http-equiv='Content-Type'/>
 <meta content='width=device-width, initial-scale=1, shrink-to-fit=yes' name='viewport'/>
+
 <title><b:if cond='data:view.isPost'><data:view.title/>  
 <b:elseif cond='data:view.isPage'/><data:view.title/>
 <b:elseif cond='data:view.isHomepage'/><data:blog.title/>
@@ -96,7 +97,8 @@
 <link href='//fonts.googleapis.com' rel='dns-prefetch'/>
 <!-- end of dns-prefetch-->
 
-<link href='https://fonts.googleapis.com/css?family=Overpass' rel='stylesheet'/>   <b:skin version='1.3.0'><![CDATA[
+  <!-- CSS -->
+  <b:skin version='1.3.0'><![CDATA[
     /*
     <!-- Variable definitions -->
 <Group description="Komentar Baru Blogger (Contempo, Soho, Emporio, Notable)">
@@ -165,7 +167,8 @@
   default="#008c5f" value="#008c5f"/>
 </Group>    */
 
-    * {
+    @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto:wght@300&display=swap");
+* {
   margin: 0;
   padding: 0;
 }
@@ -194,7 +197,7 @@ html, body {
 
 body {
   background-color: #a7b9c2;
-  font-family: "Overpass", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #wrapper {
@@ -310,14 +313,15 @@ body {
 #wrapper main .PostDetail h2 {
   font-size: 1.8rem;
   font-weight: 400;
-  margin: 1rem 0;
+  margin: 1.4rem 0;
 }
 
 #wrapper main .PostDetail p {
   margin-bottom: 1rem;
 }
 
-#wrapper main .PostDetail .PostTitle, #wrapper main .PostDetail h2 {
+#wrapper main .PostDetail .PostTitle a, #wrapper main .PostDetail h2 {
+  font-family: "Balsamiq Sans", cursive;
   color: #006cb0;
 }
 
@@ -381,13 +385,14 @@ body {
   font-weight: normal;
   font-size: 1.8rem;
   text-transform: uppercase;
-  font-family: "Josefin Sans", sans-serif;
   line-height: 2.5rem;
+  color: #006cb0;
+  font-family: "Balsamiq Sans", cursive;
 }
 
 #wrapper main .PostDetail .PostDetailBody {
   color: #333;
-  line-height: 2.5ch;
+  line-height: 3ch;
   margin: 1rem 0;
 }
 
@@ -419,7 +424,6 @@ body {
 }
 
 #wrapper main .Beranda article {
-  cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
   padding: 0.6vw;
@@ -453,6 +457,13 @@ body {
 #wrapper main .Beranda article .post-outer .PostTitle a {
   color: #364f6b;
   font-weight: lighter;
+  font-family: "Balsamiq Sans", cursive;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#wrapper main .Beranda article .post-outer .PostTitle a:hover {
+  color: lightpink;
 }
 
 #wrapper main .Beranda article .post-outer .postBodyBeranda {
@@ -561,6 +572,7 @@ body {
   text-transform: uppercase;
   line-height: 1.9rem;
   font-variant: small-caps;
+  font-family: "Balsamiq Sans", cursive;
 }
 
 #wrapper aside #aside .widget .isi h4 a {
@@ -747,6 +759,7 @@ input[type="search"]:focus {
 }
 
 #comments #comments-block {
+  font-family: "Balsamiq Sans", cursive;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -782,6 +795,18 @@ input[type="search"]:focus {
 
 #comments #comments-block .comment .comment-block .comment-footer {
   font-size: 0.8rem;
+}
+
+ul.labelcloud li a,
+div.labels-outer .label a {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+ul.labelcloud li a:hover,
+div.labels-outer .label a:hover {
+  background-color: #006cb0;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */    
 #comments{
@@ -1001,6 +1026,7 @@ cite.user > a {
     display: none;
 }  ]]></b:skin>
   
+  <!-- Defaultmarkup -->
   <b:defaultmarkups>
 <b:defaultmarkup type='Common'><b:includable id='title' var='x'>
 <div >
@@ -1062,12 +1088,6 @@ cite.user > a {
 <b:includable id='Beranda' var='x'><article>
       
       <b:comment>
-              
-        <div class='PostBerandaImage'>
-          <b:if cond='data:x.featuredImage'>
-            <b:include data='data:x.featuredImage' name='FungsiGambar'/>     
-          </b:if>
-        </div>
             </b:comment>
 
       <div class="post-outer">
@@ -1100,8 +1120,10 @@ cite.user > a {
     <b:include data='data:x' name='PostTitle'/>
     
     <div class="tanggallabel">
-    <span><b:eval expr='data:x.lastUpdated' /></span>
-    <b:include  data='data:x.labels' name='PostLabel' />
+        <b:if cond='data:view.isPost'>
+        <span><b:eval expr='data:x.lastUpdated' /></span>
+        <b:include  data='data:x.labels' name='PostLabel' />
+        </b:if>
     </div>
 
 
@@ -1529,9 +1551,10 @@ cite.user > a {
 
 </b:defaultmarkups>
 
+  <!-- Adsense -->
+  
 
-  
-  
+  <!-- Template Tata Letak-->
     <!-- Template Tata Letak -->
   <b:if cond='data:view.isLayoutMode'>
   <b:template-skin>
@@ -1553,10 +1576,8 @@ cite.user > a {
   </b:template-skin>
   </b:if>
 
-
 </head>
 <body>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script> </script>
 
 
@@ -1574,11 +1595,11 @@ cite.user > a {
       <nav>
           <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/detail.html">About</a></li>
-              <li><a href="http://">Project</a></li>
-              <li><a href="http://">Source Code</a></li>
-              <li><a href="http://">Tutorial</a></li>
-              <li><a href="http://">Galery</a></li>
+              <li><a href="/p/about.html">About</a></li>
+              <li><a href="/p/project.html">Project</a></li>
+              <li><a href="/p/source-code.html">Source Code</a></li>
+              <li><a href="/p/tutorial.html">Tutorial</a></li>
+              <li><a href="/p/galery.html">Galery</a></li>
           </ul>
 
           <div id='sosialmedia'>
@@ -1660,27 +1681,33 @@ cite.user > a {
 
 
 <!-- JS -->
-  <script>
-const currentPage = "https://bie.my.id/";
+
+  <!-- Fungsi JS Beranda -->
+  <b:if cond='data:view.isHomepage or data:view.isMultipleItems'>
+    <script>const currentPage = &quot;https://bie.my.id/&quot;;
+
+
+
+
 
 function jsku(e){
+	
 	const jumlahpostperpage = 5; 
   
-    const halaman = document.getElementById("paggination");
+    const halaman = document.getElementById(&quot;paggination&quot;);
     const post = e.feed.entry;
     
-    halaman.innerHTML = "";
+    halaman.innerHTML = &quot;&quot;;
 
   
     for(let i = 0; i &lt; (Math.round(post.length / jumlahpostperpage)); i++){
-  		console.log(post[i].title)
-        let span = document.createElement("span"),
-            a    = document.createElement("a")
+		        let span = document.createElement(&quot;span&quot;),
+            a    = document.createElement(&quot;a&quot;)
         
         a.innerText = i + 1;		
         a.href = currentPage ;
   		
-  		if (i > 0) {
+  		if (i &gt; 0) {
   			// karena dimulai dari 0.. maka jika page 2, post yg diambil adalah.. yg ke 5 (0,1,2,3,4) (5,6,7,8,9) (10....)
   			// 2020-06-08T15:29:00%2B07:00 getTimezoneOffset
   
@@ -1697,7 +1724,8 @@ function jsku(e){
         halaman.appendChild(span);
     }
 } </script>
-  <script src="/feeds/posts/summary?max-results=9999&amp;alt=json-in-script&amp;callback=jsku"></script>
+    <script src="/feeds/posts/summary?max-results=9999&amp;alt=json-in-script&amp;callback=jsku"></script>
+  </b:if>
 
 </body>
 </html>

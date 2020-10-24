@@ -1,4 +1,4 @@
-<?php if ($adsense): ?>
+<?php if (adsense): ?>
   <b:includable id='main'>
     <div class='widget-content'>
     <b:if cond='data:adCode'>

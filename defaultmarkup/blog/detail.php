@@ -4,8 +4,10 @@
     <b:include data='data:x' name='PostTitle'/>
     
     <div class="tanggallabel">
-    <span><b:eval expr='data:x.lastUpdated' /></span>
-    <b:include  data='data:x.labels' name='PostLabel' />
+        <b:if cond='data:view.isPost'>
+        <span><b:eval expr='data:x.lastUpdated' /></span>
+        <b:include  data='data:x.labels' name='PostLabel' />
+        </b:if>
     </div>
 
 

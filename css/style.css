@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +28,7 @@ html, body {
 
 body {
   background-color: #a7b9c2;
-  font-family: "Overpass", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #wrapper {
@@ -143,14 +144,15 @@ body {
 #wrapper main .PostDetail h2 {
   font-size: 1.8rem;
   font-weight: 400;
-  margin: 1rem 0;
+  margin: 1.4rem 0;
 }
 
 #wrapper main .PostDetail p {
   margin-bottom: 1rem;
 }
 
-#wrapper main .PostDetail .PostTitle, #wrapper main .PostDetail h2 {
+#wrapper main .PostDetail .PostTitle a, #wrapper main .PostDetail h2 {
+  font-family: "Balsamiq Sans", cursive;
   color: #006cb0;
 }
 
@@ -214,13 +216,14 @@ body {
   font-weight: normal;
   font-size: 1.8rem;
   text-transform: uppercase;
-  font-family: "Josefin Sans", sans-serif;
   line-height: 2.5rem;
+  color: #006cb0;
+  font-family: "Balsamiq Sans", cursive;
 }
 
 #wrapper main .PostDetail .PostDetailBody {
   color: #333;
-  line-height: 2.5ch;
+  line-height: 3ch;
   margin: 1rem 0;
 }
 
@@ -252,7 +255,6 @@ body {
 }
 
 #wrapper main .Beranda article {
-  cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
   padding: 0.6vw;
@@ -286,6 +288,13 @@ body {
 #wrapper main .Beranda article .post-outer .PostTitle a {
   color: #364f6b;
   font-weight: lighter;
+  font-family: "Balsamiq Sans", cursive;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#wrapper main .Beranda article .post-outer .PostTitle a:hover {
+  color: lightpink;
 }
 
 #wrapper main .Beranda article .post-outer .postBodyBeranda {
@@ -394,6 +403,7 @@ body {
   text-transform: uppercase;
   line-height: 1.9rem;
   font-variant: small-caps;
+  font-family: "Balsamiq Sans", cursive;
 }
 
 #wrapper aside #aside .widget .isi h4 a {
@@ -580,6 +590,7 @@ input[type="search"]:focus {
 }
 
 #comments #comments-block {
+  font-family: "Balsamiq Sans", cursive;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -615,5 +626,17 @@ input[type="search"]:focus {
 
 #comments #comments-block .comment .comment-block .comment-footer {
   font-size: 0.8rem;
+}
+
+ul.labelcloud li a,
+div.labels-outer .label a {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+ul.labelcloud li a:hover,
+div.labels-outer .label a:hover {
+  background-color: #006cb0;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

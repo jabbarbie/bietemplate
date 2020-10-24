@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto:wght@300&display=swap');
+
+// Warna
 $color-Background: #a7b9c2;
 $color-Main: #006cb0;
 $color-Secondary: lightblue;
@@ -15,8 +18,8 @@ $padding-Outer: 2vmin;
 $text-Margin: 1em;
 
 // Font
-$font-Primary: 'Overpass', sans-serif;
-$font-Secondary : 'Josefin Sans', sans-serif;
+$font-Primary: 'Roboto', sans-serif;
+$font-Secondary : 'Balsamiq Sans', cursive;
 
 $font-Size-HeadingFooter: 0.9em;
 $font-Size-Small: 0.8rem;
@@ -39,6 +42,7 @@ img {width: 100%}
 html, body {
     font-size: 16px;
 }
+
 
 body {
     background-color: $color-Background;
@@ -133,14 +137,15 @@ body {
         h2 {
           font-size: 1.8rem;
           font-weight: 400;
-          margin: 1rem 0;
+          margin: 1.4rem 0;
         }
         p{
           margin-bottom: 1rem;
         }
 
 
-        .PostTitle , h2 {
+        .PostTitle a, h2 {
+          font-family: $font-Secondary;
           color: $color-Main;
         }
         .separator {
@@ -205,9 +210,9 @@ body {
           font-size: 1.8rem;
           // margin-top: 0.5rem;
           text-transform: uppercase;
-          font-family: $font-Secondary;
           line-height: 2.5rem;
-          
+          color: $color-Main;
+          font-family: $font-Secondary;
           // text-overflow: ellipsis;
         }
         .PostDetailBody {
@@ -221,7 +226,7 @@ body {
           }
 
           color: #333;
-          line-height: 2.5ch;
+          line-height: 3ch;
           margin: 1rem 0;
 
           a{
@@ -239,7 +244,6 @@ body {
         padding : 0.8rem;
         border: 1px solid #dedede;
         article {
-          cursor: pointer;
           transition: 0.2s;
           padding: 0.6vw;
           border-bottom: 1px solid $color-White;
@@ -264,6 +268,11 @@ body {
               a {
                 color: $color-Hover;
                 font-weight: lighter;
+                font-family: $font-Secondary;
+                transition: 0.5s;
+                &:hover {
+                  color: lightpink;
+                }
               }
             }
 
@@ -364,6 +373,7 @@ body {
               line-height: 1.9rem;
               // padding-top: +0.4rem;
               font-variant: small-caps;
+              font-family: $font-Secondary;
             }
 
             .isi{
@@ -508,6 +518,7 @@ input[type="search"]{
     font-weight: normal;
   }
   #comments-block {
+    font-family: $font-Secondary;
     display: flex;
     flex-direction: column;
 
@@ -553,3 +564,12 @@ input[type="search"]{
 // ::-webkit-scrollbar-thumb:hover {
 //   background: $color-Hover; 
 // }
+
+ul.labelcloud li a,
+div.labels-outer .label a {
+  transition: 0.3s;
+  &:hover {
+    background-color: $color-Main;
+    color: white;
+  }
+}
